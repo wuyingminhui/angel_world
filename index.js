@@ -1,7 +1,5 @@
 const sheetId = '16R7g1FyFMaq9fwwh4m6uSkiZu-dyIyf0829Ys5C3Q90';
-const sheetName = '1126'; // 你的工作表名称
-
-
+const sheetName = '1126';
 let l_h_title = 'L页面 - H页面来源';
 let l_h_content = '这是从H页面进入l-page.html时显示的内容。';
 let l_i_title = 'L页面 - I页面来源';
@@ -19,7 +17,6 @@ let k_h_title = 'K页面 - H页面来源';
 let k_h_content = '这是从H页面进入k-page.html时显示的内容。';
 let k_i_title = 'K页面 - I页面来源';
 let k_i_content = '这是从I页面进入k-page.html时显示的内容。';
-
 
 /**
  * 计算 object-fit: cover 模式下的图片偏移
@@ -344,7 +341,6 @@ function getDocument() {
       .then(data => {
           // 移除前缀 "google.visualization.Query.setResponse(" 和后缀 ");"
           const jsonData = JSON.parse(data.substring(47).slice(0, -2));
-          // console.log(jsonData);
           displayJsonData(jsonData);
       })
       .catch(error => console.error('Error:', error));

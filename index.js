@@ -323,78 +323,10 @@ function hideMusicPlayer() {
   }
 }
 
-// ==================== Loading相关方法 ====================
-
-/**
- * 初始化loading效果
- */
-function initLoading() {
-  // 获取loading元素
-  const loading = document.getElementById('pixelLoading');
-  const imageContainer = document.querySelector('.image-container');
-  
-  if (!loading || !imageContainer) return;
-  
-  // 获取所有需要监听加载状态的图片
-  const images = document.querySelectorAll('img');
-  let loadedCount = 0;
-  const totalImages = images.length;
-  
-  // 如果没有图片，直接隐藏loading
-  if (totalImages === 0) {
-    hideLoading();
-    return;
-  }
-  
-  // 为每张图片添加加载事件监听器
-  images.forEach(img => {
-    // 如果图片已经加载完成（缓存的情况）
-    if (img.complete) {
-      loadedCount++;
-      if (loadedCount === totalImages) {
-        hideLoading();
-      }
-    } else {
-      // 图片加载完成事件
-      img.addEventListener('load', function() {
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          hideLoading();
-        }
-      });
-      
-      // 图片加载错误事件
-      img.addEventListener('error', function() {
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          hideLoading();
-        }
-      });
-    }
-  });
-}
-
-/**
- * 隐藏loading效果
- */
-function hideLoading() {
-  const loading = document.getElementById('pixelLoading');
-  const imageContainer = document.querySelector('.image-container');
-  
-  if (loading) {
-    loading.style.display = 'none';
-  }
-  
-  if (imageContainer) {
-    imageContainer.style.filter = 'none';
-  }
-}
-
 // 页面加载完成后初始化功能
 document.addEventListener('DOMContentLoaded', function() {
   initPopup();
   initMusicPlayer();
-  initLoading();
 });
 
 // 导出函数（如果在模块环境中使用）
@@ -411,8 +343,6 @@ if (typeof module !== 'undefined' && module.exports) {
     initPopup,
     initMusicPlayer,
     showMusicPlayer,
-    hideMusicPlayer,
-    initLoading,
-    hideLoading
+    hideMusicPlayer
   };
 }

@@ -352,6 +352,7 @@ function displayJsonData(data) {
   const cols = table.cols;
   const rows = table.rows;
   rows.forEach(row => {
+    console.log(row.c);
     row.c.forEach(cell => {
       const value = cell ? cell.v : '';
       console.log(value);

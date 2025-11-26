@@ -1,3 +1,7 @@
+
+const sheetId = '16R7g1FyFMaq9fwwh4m6uSkiZu-dyIyf0829Ys5C3Q90';
+const sheetName = '1126'; // 你的工作表名称
+
 /**
  * 计算 object-fit: cover 模式下的图片偏移
  * @param {number} imageWidth - 图片原始宽度
@@ -72,14 +76,14 @@ function getTimeOfDay() {
 function getContentBySource(source) {
   // 定义页面映射关系
   const contentMap = {
-    'index': {
-      title: '首页内容',
-      content: '这是从首页进入k-page.html时显示的内容。'
-    },
-    'b-page': {
-      title: 'B页面内容',
-      content: '这是从B页面进入k-page.html时显示的内容。'
-    },
+    // 'index': {
+    //   title: '首页内容',
+    //   content: '这是从首页进入k-page.html时显示的内容。'
+    // },
+    // 'b-page': {
+    //   title: 'B页面内容',
+    //   content: '这是从B页面进入k-page.html时显示的内容。'
+    // },
     'c-page': {
       title: 'C页面内容',
       content: '这是从C页面进入k-page.html时显示的内容。'
@@ -88,14 +92,14 @@ function getContentBySource(source) {
       title: 'D页面内容',
       content: '这是从D页面进入k-page.html时显示的内容。'
     },
-    'f-page': {
-      title: 'F页面内容',
-      content: '这是从F页面进入k-page.html时显示的内容。'
-    },
-    'g-page': {
-      title: 'G页面内容',
-      content: '这是从G页面进入k-page.html时显示的内容。'
-    },
+    // 'f-page': {
+    //   title: 'F页面内容',
+    //   content: '这是从F页面进入k-page.html时显示的内容。'
+    // },
+    // 'g-page': {
+    //   title: 'G页面内容',
+    //   content: '这是从G页面进入k-page.html时显示的内容。'
+    // },
     'h-page': {
       title: 'H页面内容',
       content: '这是从H页面进入k-page.html时显示的内容。'
@@ -104,14 +108,14 @@ function getContentBySource(source) {
       title: 'I页面内容',
       content: '这是从I页面进入k-page.html时显示的内容。'
     },
-    'j-page': {
-      title: 'J页面内容',
-      content: '这是从J页面进入k-page.html时显示的内容。'
-    },
-    'l-page': {
-      title: 'L页面内容',
-      content: '这是从L页面进入k-page.html时显示的内容。'
-    }
+    // 'j-page': {
+    //   title: 'J页面内容',
+    //   content: '这是从J页面进入k-page.html时显示的内容。'
+    // },
+    // 'l-page': {
+    //   title: 'L页面内容',
+    //   content: '这是从L页面进入k-page.html时显示的内容。'
+    // }
   };
 
   // 返回对应的内容，如果没有匹配则使用默认内容
@@ -127,16 +131,17 @@ function getContentBySource(source) {
  * @returns {Object} 包含标题和正文的对象
  */
 function getContentBySourceForLPage(source) {
+  console.log(source);
   // 定义l-page.html的页面映射关系
   const contentMap = {
-    'index': {
-      title: 'L页面 - 首页来源',
-      content: '这是从首页进入l-page.html时显示的内容。'
-    },
-    'b-page': {
-      title: 'L页面 - B页面来源',
-      content: '这是从B页面进入l-page.html时显示的内容。'
-    },
+    // 'index': {
+    //   title: 'L页面 - 首页来源',
+    //   content: '这是从首页进入l-page.html时显示的内容。'
+    // },
+    // 'b-page': {
+    //   title: 'L页面 - B页面来源',
+    //   content: '这是从B页面进入l-page.html时显示的内容。'
+    // },
     'c-page': {
       title: 'L页面 - C页面来源',
       content: '这是从C页面进入l-page.html时显示的内容。'
@@ -145,14 +150,14 @@ function getContentBySourceForLPage(source) {
       title: 'L页面 - D页面来源',
       content: '这是从D页面进入l-page.html时显示的内容。'
     },
-    'f-page': {
-      title: 'L页面 - F页面来源',
-      content: '这是从F页面进入l-page.html时显示的内容。'
-    },
-    'g-page': {
-      title: 'L页面 - G页面来源',
-      content: '这是从G页面进入l-page.html时显示的内容。'
-    },
+    // 'f-page': {
+    //   title: 'L页面 - F页面来源',
+    //   content: '这是从F页面进入l-page.html时显示的内容。'
+    // },
+    // 'g-page': {
+    //   title: 'L页面 - G页面来源',
+    //   content: '这是从G页面进入l-page.html时显示的内容。'
+    // },
     'h-page': {
       title: 'L页面 - H页面来源',
       content: '这是从H页面进入l-page.html时显示的内容。'
@@ -161,14 +166,14 @@ function getContentBySourceForLPage(source) {
       title: 'L页面 - I页面来源',
       content: '这是从I页面进入l-page.html时显示的内容。'
     },
-    'j-page': {
-      title: 'L页面 - J页面来源',
-      content: '这是从J页面进入l-page.html时显示的内容。'
-    },
-    'k-page': {
-      title: 'L页面 - K页面来源',
-      content: '这是从K页面进入l-page.html时显示的内容。'
-    }
+    // 'j-page': {
+    //   title: 'L页面 - J页面来源',
+    //   content: '这是从J页面进入l-page.html时显示的内容。'
+    // },
+    // 'k-page': {
+    //   title: 'L页面 - K页面来源',
+    //   content: '这是从K页面进入l-page.html时显示的内容。'
+    // }
   };
 
   // 返回对应的内容，如果没有匹配则使用默认内容
@@ -313,6 +318,19 @@ function showMusicPlayer() {
   }
 }
 
+function getDocument() {
+  const url = `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(sheetName)}`;
+  fetch(url)
+      .then(response => response.text())
+      .then(data => {
+          // 移除前缀 "google.visualization.Query.setResponse(" 和后缀 ");"
+          const jsonData = JSON.parse(data.substring(47).slice(0, -2));
+          console.log(jsonData);
+          // displayJsonData(jsonData);
+      })
+      .catch(error => console.error('Error:', error));
+}
+
 /**
  * 隐藏音乐播放器
  */
@@ -327,6 +345,7 @@ function hideMusicPlayer() {
 document.addEventListener('DOMContentLoaded', function() {
   initPopup();
   initMusicPlayer();
+  getDocument()
 });
 
 // 导出函数（如果在模块环境中使用）

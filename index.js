@@ -1,6 +1,25 @@
-
 const sheetId = '16R7g1FyFMaq9fwwh4m6uSkiZu-dyIyf0829Ys5C3Q90';
 const sheetName = '1126'; // 你的工作表名称
+
+
+let l_h_title = 'L页面 - H页面来源';
+let l_h_content = '这是从H页面进入l-page.html时显示的内容。';
+let l_i_title = 'L页面 - I页面来源';
+let l_i_content = '这是从I页面进入l-page.html时显示的内容。';
+let l_c_title = 'L页面 - C页面来源';
+let l_c_content = '这是从C页面进入l-page.html时显示的内容。';
+let l_d_title = 'L页面 - D页面来源';
+let l_d_content = '这是从D页面进入l-page.html时显示的内容。';
+
+let k_c_title = 'K页面 - C页面来源';
+let k_c_content = '这是从C页面进入k-page.html时显示的内容。';
+let k_d_title = 'K页面 - D页面来源';
+let k_d_content = '这是从D页面进入k-page.html时显示的内容。';
+let k_h_title = 'K页面 - H页面来源';
+let k_h_content = '这是从H页面进入k-page.html时显示的内容。';
+let k_i_title = 'K页面 - I页面来源';
+let k_i_content = '这是从I页面进入k-page.html时显示的内容。';
+
 
 /**
  * 计算 object-fit: cover 模式下的图片偏移
@@ -85,12 +104,12 @@ function getContentBySource(source) {
     //   content: '这是从B页面进入k-page.html时显示的内容。'
     // },
     'c-page': {
-      title: 'C页面内容',
-      content: '这是从C页面进入k-page.html时显示的内容。'
+      title: k_c_title,
+      content: k_c_content
     },
     'd-page': {
-      title: 'D页面内容',
-      content: '这是从D页面进入k-page.html时显示的内容。'
+      title: k_d_title,
+      content: k_d_content
     },
     // 'f-page': {
     //   title: 'F页面内容',
@@ -101,12 +120,12 @@ function getContentBySource(source) {
     //   content: '这是从G页面进入k-page.html时显示的内容。'
     // },
     'h-page': {
-      title: 'H页面内容',
-      content: '这是从H页面进入k-page.html时显示的内容。'
+      title: k_h_title,
+      content: k_h_content
     },
     'i-page': {
-      title: 'I页面内容',
-      content: '这是从I页面进入k-page.html时显示的内容。'
+      title: k_i_title,
+      content: k_i_content
     },
     // 'j-page': {
     //   title: 'J页面内容',
@@ -143,12 +162,12 @@ function getContentBySourceForLPage(source) {
     //   content: '这是从B页面进入l-page.html时显示的内容。'
     // },
     'c-page': {
-      title: 'L页面 - C页面来源',
-      content: '这是从C页面进入l-page.html时显示的内容。'
+      title: l_c_title,
+      content: l_c_content,
     },
     'd-page': {
-      title: 'L页面 - D页面来源',
-      content: '这是从D页面进入l-page.html时显示的内容。'
+      title: l_d_title,
+      content: l_d_content,
     },
     // 'f-page': {
     //   title: 'L页面 - F页面来源',
@@ -159,12 +178,12 @@ function getContentBySourceForLPage(source) {
     //   content: '这是从G页面进入l-page.html时显示的内容。'
     // },
     'h-page': {
-      title: 'L页面 - H页面来源',
-      content: '这是从H页面进入l-page.html时显示的内容。'
+      title: l_h_title,
+      content: l_h_content,
     },
     'i-page': {
-      title: 'L页面 - I页面来源',
-      content: '这是从I页面进入l-page.html时显示的内容。'
+      title: l_i_title,
+      content: l_i_content,
     },
     // 'j-page': {
     //   title: 'L页面 - J页面来源',
@@ -325,11 +344,26 @@ function getDocument() {
       .then(data => {
           // 移除前缀 "google.visualization.Query.setResponse(" 和后缀 ");"
           const jsonData = JSON.parse(data.substring(47).slice(0, -2));
-          console.log(jsonData);
-          // displayJsonData(jsonData);
+          // console.log(jsonData);
+          displayJsonData(jsonData);
       })
       .catch(error => console.error('Error:', error));
 }
+
+ function displayJsonData(data) {
+  console.log(data);
+  const table = data.table;
+  const cols = table.cols;
+  const rows = table.rows;
+  rows.forEach(row => {
+    row.c.forEach(cell => {
+      const value = cell ? cell.v : '';
+      console.log(value);
+    });
+  });
+
+
+ }
 
 /**
  * 隐藏音乐播放器

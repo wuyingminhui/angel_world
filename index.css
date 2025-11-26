@@ -60,7 +60,7 @@
 /* 像素风格音乐播放器 */
 .pixel-music-player {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   right: 20px;
   width: 300px;
   background-color: #000;
@@ -140,8 +140,9 @@
   position: absolute;
   top: -12px;
   right: -12px;
-  width: 24px;
-  height: 24px;
+  width: 36px;
+  height: 36px;
+  font-size: 28px;
   background-color: #fff;
   color: #000;
   border: 2px solid #000;

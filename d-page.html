@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D Page - Angel Website</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #000;
+    }
+
+    .image-container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .image-wrapper {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .design-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* 为D-3-G.png、D-4-G.png、D-5-G.png、D-6-G.png设置动态尺寸和光晕动画效果 */
+    .design-image[src="D-3-G.png"],
+    .design-image[src="D-4-G.png"],
+    .design-image[src="D-5-G.png"],
+    .design-image[src="D-6-G.png"] {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      z-index: 10; /* 确保图片在D-1.png上方 */
+      opacity: 0; /* 初始不可见 */
+      border-radius: 50%; /* 圆形光晕效果 */
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0); /* 初始无光晕 */
+      animation: glow-pulse 2s ease-in-out infinite alternate; /* 光晕动画 */
+      cursor: pointer; /* 鼠标悬停时显示手型光标 */
+    }
+
+    /* D-3-G.png、D-4-G.png、D-5-G.png、D-6-G.png光晕闪现动画 */
+    @keyframes glow-pulse {
+      0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3),
+                    0 0 10px rgba(255, 255, 255, 0.2),
+                    0 0 15px rgba(255, 255, 255, 0.1);
+      }
+      50% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+                    0 0 20px rgba(255, 255, 255, 0.4),
+                    0 0 30px rgba(255, 255, 255, 0.3);
+      }
+      100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.7),
+                    0 0 30px rgba(255, 255, 255, 0.5),
+                    0 0 45px rgba(255, 255, 255, 0.4);
+      }
+    }
+
+    /* 左上角的Elements图片容器 */
+    .elements-container {
+      position: absolute;
+      top: 100px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    /* 左下角的Elements-4.png */
+    .element-4 {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 5px;
+      z-index: 20;
+      animation: jitter 1.5s ease-in-out infinite alternate;
+      transform-origin: center;
+      animation-delay: 0.9s;
+      cursor: pointer;
+    }
+
+    /* 右下角的Elements-5.png */
+    .element-5 {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 5px;
+      z-index: 20;
+      animation: jitter 1.5s ease-in-out infinite alternate;
+      transform-origin: center;
+      animation-delay: 1.2s;
+      cursor: pointer;
+    }
+
+    /* Elements图片样式 */
+    .element-image {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 5px;
+      padding: 5px;
+      /* 添加不规则抖动动画，频率变慢 */
+      animation: jitter 1.5s ease-in-out infinite alternate;
+      transform-origin: center;
+      cursor: pointer;
+    }
+
+    /* 不同的元素图片使用不同的动画延迟，制造不规则效果 */
+    .element-image:nth-child(1) {
+      animation-delay: 0s;
+    }
+    
+    .element-image:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+    
+    .element-image:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    /* 不规则抖动动画关键帧，频率变慢 */
+    @keyframes jitter {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+      }
+      10% {
+        transform: translate(-1px, -0.5px) rotate(-0.3deg);
+      }
+      20% {
+        transform: translate(0.5px, 1px) rotate(0.3deg);
+      }
+      30% {
+        transform: translate(-0.5px, 0) rotate(-0.1deg);
+      }
+      40% {
+        transform: translate(1px, -0.5px) rotate(0.1deg);
+      }
+      50% {
+        transform: translate(-1px, 0.5px) rotate(-0.2deg);
+      }
+      60% {
+        transform: translate(0, 1px) rotate(0.2deg);
+      }
+      70% {
+        transform: translate(-0.5px, 0) rotate(-0.05deg);
+      }
+      80% {
+        transform: translate(0.5px, -0.5px) rotate(0.05deg);
+      }
+      90% {
+        transform: translate(0, 0.5px) rotate(-0.25deg);
+      }
+      100% {
+        transform: translate(-0.5px, -0.5px) rotate(0.25deg);
+      }
+    }
+
+    /* 全屏模式 */
+    .fullscreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 9999;
+    }
+    
+    /* 确保图片映射区域可点击 */
+    map area {
+      cursor: pointer;
+    }
+    
+    /* 显示偏移信息的区域 */
+    .offset-info {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px;
+      border-radius: 5px;
+      z-index: 10000;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <div class="image-container">
+    <div class="image-wrapper">
+      <!-- 根据时间选择背景图片：白天用D-1.png，夜晚用D-2.png -->
+      <img id="backgroundImage" src="D-1.png" alt="Design Reference D-1" class="design-image">
+      
+      <!-- D-3-G.png 作为顶层图片，盖在D-1.png上面 -->
+      <img id="overlayImage1" src="D-3-G.png" alt="Design Reference D-3-G" class="design-image" onclick="window.location.href='k-page.html?source=d-page'">
+      
+      <!-- D-4-G.png 作为顶层图片，盖在D-1.png上面 -->
+      <img id="overlayImage2" src="D-4-G.png" alt="Design Reference D-4-G" class="design-image" onclick="window.location.href='l-page.html?source=d-page'">
+      
+      <!-- D-5-G.png 作为顶层图片，盖在D-1.png上面 -->
+      <img id="overlayImage3" src="D-5-G.png" alt="Design Reference D-5-G" class="design-image" onclick="window.location.href='l-page.html?source=d-page'">
+      
+      <!-- D-6-G.png 作为顶层图片，盖在D-1.png上面 -->
+      <img id="overlayImage4" src="D-6-G.png" alt="Design Reference D-6-G" class="design-image" onclick="window.location.href='k-page.html?source=d-page'">
+      
+      <!-- 左上角Elements图片 -->
+      <div class="elements-container">
+        <img src="Elements-1-G.png" alt="Element 1" class="element-image" id="element1Image">
+        <img id="elements2Image" src="Elements-2-G.png" alt="Element 2" class="element-image" onclick="toggleBackgroundImage()">
+        <!-- <img src="Elements-3-G.png" alt="Element 3" class="element-image"> -->
+      </div>
+      
+      <!-- 左下角Elements-4.png -->
+      <img src="Elements-4-G.png" alt="Element 4" class="element-4" onclick="window.history.back()">
+      
+      <!-- 右下角Elements-5.png -->
+      <img src="Elements-5-G.png" alt="Element 5" class="element-5" onclick="window.location.href='n-page.html'">
+    </div>
+  </div>
+  
+  <!-- 显示偏移信息 -->
+  <!-- <div class="offset-info" id="offsetInfo">
+    Offset: Calculating...
+  </div> -->
+
+  <!-- 像素画风格弹窗 -->
+  <div class="pixel-popup" id="pixelPopup">
+    <div class="popup-close" onclick="closePixelPopup()">×</div>
+    <div class="pixel-popup-title">About</div>
+    <div class="pixel-popup-content">暂无，待添加</div>
+  </div>
+
+  <!-- 引入我们创建的JavaScript文件 -->
+  <script src="index.js"></script>
+  <script>
+    // 保存偏移值和缩放比
+    let currentOffsetX = 0;
+    let currentOffsetY = 0;
+    let scaleX = 1;
+    let scaleY = 1;
+    let maxscale = 1;
+    
+    // 页面加载完成后计算偏移和缩放比
+    window.addEventListener('load', function() {
+      // 根据时间设置背景图片
+      setTimeBasedBackground();
+      
+      setTimeout(function() {
+        calculateScaleAndApply();
+      }, 500);
+    });
+    
+    // 当背景图片加载完成后也重新计算
+    document.getElementById('backgroundImage').addEventListener('load', function() {
+      calculateScaleAndApply();
+    });
+    
+    // 当覆盖图片加载完成后也重新计算
+    document.getElementById('overlayImage1').addEventListener('load', function() {
+      calculateScaleAndApply();
+    });
+    
+    // 当D-4-G.png加载完成后也重新计算
+    document.getElementById('overlayImage2').addEventListener('load', function() {
+      calculateScaleAndApply();
+    });
+    
+    // 当D-5-G.png加载完成后也重新计算
+    document.getElementById('overlayImage3').addEventListener('load', function() {
+      calculateScaleAndApply();
+    });
+    
+    // 当D-6-G.png加载完成后也重新计算
+    document.getElementById('overlayImage4').addEventListener('load', function() {
+      calculateScaleAndApply();
+    });
+    
+    // 根据时间设置背景图片
+    function setTimeBasedBackground() {
+      const timeOfDay = getTimeOfDay();
+      const backgroundImage = document.getElementById('backgroundImage');
+      
+      if (timeOfDay === 'light') {
+        backgroundImage.src = 'D-1.png';
+      } else {
+        backgroundImage.src = 'D-2.png';
+      }
+      
+      console.log(`Time of day: ${timeOfDay}, Background image set to: ${backgroundImage.src}`);
+    }
+    
+    // 切换背景图片函数
+    function toggleBackgroundImage() {
+      const backgroundImage = document.getElementById('backgroundImage');
+      
+      // 如果当前是D-1.png，则切换到D-2.png，反之亦然
+      if (backgroundImage.src.includes('D-1.png')) {
+        backgroundImage.src = 'D-2.png';
+      } else {
+        backgroundImage.src = 'D-1.png';
+      }
+      
+      console.log(`Background image toggled to: ${backgroundImage.src}`);
+      
+      // 重新计算缩放和偏移
+      setTimeout(function() {
+        calculateScaleAndApply();
+      }, 100);
+    }
+    
+    // 计算缩放比并应用到D-3-G.png、D-4-G.png、D-5-G.png、D-6-G.png
+    function calculateScaleAndApply() {
+      const backgroundImage = document.getElementById('backgroundImage');
+      const overlayImage1 = document.getElementById('overlayImage1');
+      const overlayImage2 = document.getElementById('overlayImage2');
+      const overlayImage3 = document.getElementById('overlayImage3');
+      const overlayImage4 = document.getElementById('overlayImage4');
+      const infoDiv = document.getElementById('offsetInfo');
+      
+      // 检查背景图片是否已加载
+      // if (backgroundImage.naturalWidth === 0 || backgroundImage.naturalHeight === 0) {
+      //   infoDiv.textContent = 'Offset: Waiting for background image to load...';
+      //   return;
+      // }
+      
+      // 获取背景图片原始尺寸
+      const bgImageWidth = backgroundImage.naturalWidth;
+      const bgImageHeight = backgroundImage.naturalHeight;
+      
+      // 获取容器尺寸
+      const containerWidth = backgroundImage.offsetWidth;
+      const containerHeight = backgroundImage.offsetHeight;
+      
+      // 计算缩放比
+      scaleX = containerWidth / bgImageWidth;
+      scaleY = containerHeight / bgImageHeight;
+      maxscale = Math.max(scaleX, scaleY);
+      
+      // 调用我们定义的方法计算偏移
+      const offset = calculateCoverOffset(bgImageWidth, bgImageHeight, containerWidth, containerHeight);
+      
+      // 保存当前偏移值
+      currentOffsetX = offset.offsetX;
+      currentOffsetY = offset.offsetY;
+      
+      // 显示偏移信息和缩放比信息
+      // infoDiv.textContent = `Offset: X=${offset.offsetX}, Y=${offset.offsetY} | Scale: X=${scaleX.toFixed(2)}, Y=${scaleY.toFixed(2)}`;
+      
+      // 应用缩放比和偏移到D-3-G.png、D-4-G.png、D-5-G.png、D-6-G.png
+      applyScaleAndOffsetToImage();
+    }
+    
+    // 将缩放比和偏移应用到D-3-G.png、D-4-G.png、D-5-G.png、D-6-G.png样式
+    function applyScaleAndOffsetToImage() {
+      const overlayImg1 = document.getElementById('overlayImage1');
+      const overlayImg2 = document.getElementById('overlayImage2');
+      const overlayImg3 = document.getElementById('overlayImage3');
+      const overlayImg4 = document.getElementById('overlayImage4');
+      
+      // 检查覆盖图片是否已加载
+      if (overlayImg1.naturalWidth === 0 || overlayImg1.naturalHeight === 0) {
+        return;
+      }
+      
+      // 获取图片的当前显示尺寸（在250px基础上应用缩放比）
+      const currentWidth = 600; // 原来的固定宽度
+      const currentHeight = 600; // 原来的固定高度
+      
+      // 计算新的尺寸：当前尺寸乘以缩放比
+      const newWidth = currentWidth * maxscale;
+      const newHeight = currentHeight * maxscale;
+
+      const newinfo1 = calculateCoverOffsetPNG(1369, 240, maxscale, currentOffsetX, currentOffsetY);
+      const newinfo2 = calculateCoverOffsetPNG(960 , 187, maxscale, currentOffsetX, currentOffsetY);
+      const newinfo3 = calculateCoverOffsetPNG(515,  211, maxscale, currentOffsetX, currentOffsetY);
+      const newinfo4 = calculateCoverOffsetPNG(0, 203, maxscale, currentOffsetX, currentOffsetY);
+      
+      
+      // 设置新的尺寸
+      overlayImg1.style.width = `${newWidth}px`;
+      overlayImg1.style.height = `${newHeight}px`;
+      overlayImg1.style.left = newinfo1.offsetX + 'px';
+      overlayImg1.style.top = newinfo1.offsetY + 'px';
+      
+      overlayImg2.style.width = `${newWidth}px`;
+      overlayImg2.style.height = `${newHeight}px`;
+      overlayImg2.style.left = newinfo2.offsetX + 'px';
+      overlayImg2.style.top = newinfo2.offsetY + 'px';
+      
+      overlayImg3.style.width = `${newWidth}px`;
+      overlayImg3.style.height = `${newHeight}px`;
+      overlayImg3.style.left = newinfo3.offsetX + 'px';
+      overlayImg3.style.top = newinfo3.offsetY + 'px';
+      
+      overlayImg4.style.width = `${newWidth}px`;
+      overlayImg4.style.height = `${newHeight}px`;
+      overlayImg4.style.left = newinfo4.offsetX + 'px';
+      overlayImg4.style.top = newinfo4.offsetY + 'px';
+      
+      // 位置变化完成后设置为可见
+      setTimeout(function() {
+        overlayImg1.style.opacity = '0.1';
+        overlayImg2.style.opacity = '0.1';
+        overlayImg3.style.opacity = '0.1';
+        overlayImg4.style.opacity = '0.1';
+      }, 500); // 短暂延迟后设置为可见
+      
+      console.log(`Applied scale to D-3-G.png, D-4-G.png, D-5-G.png and D-6-G.png: Width=${newWidth}, Height=${newHeight}, Scale X=${scaleX}, Y=${scaleY}`);
+    }
+    
+    // 页面加载完成后初始化弹窗功能
+    document.addEventListener('DOMContentLoaded', function() {
+      // 为Elements-1-G.png添加点击事件监听器
+      const element1Image = document.getElementById('element1Image');
+      if (element1Image) {
+        element1Image.addEventListener('click', function() {
+          // 显示像素画风格弹窗
+          const popup = document.getElementById('pixelPopup');
+          if (popup) {
+            popup.classList.add('show');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

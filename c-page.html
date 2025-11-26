@@ -240,7 +240,7 @@
       <div class="elements-container">
         <img src="Elements-1-G.png" alt="Element 1" class="element-image" id="element1Image">
         <img id="elements2Image" src="Elements-2-G.png" alt="Element 2" class="element-image" onclick="toggleBackgroundImage()">
-        <!-- <img src="Elements-3-G.png" alt="Element 3" class="element-image"> -->
+        <img src="Elements-3-G.png" alt="Element 3" class="element-image" id="element3Image">
       </div>
       
         <!-- 左下角Elements-4-G.png，点击返回上一页 -->
@@ -259,6 +259,24 @@
     <div class="pixel-popup-title">About</div>
     <div class="pixel-popup-content">暂无，待添加</div>
   </div>
+
+  <!-- 像素风格音乐播放器 -->
+  <div class="pixel-music-player" id="pixelMusicPlayer">
+    <div class="player-close" id="playerClose">×</div>
+    <div class="player-title">Music Player</div>
+    <!-- <div class="music-info">a-b-c.mp3</div> -->
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="controls">
+      <div class="control-btn" id="playBtn">▶</div>
+      <div class="control-btn" id="pauseBtn">⏸</div>
+      <div class="control-btn" id="stopBtn">⏹</div>
+    </div>
+  </div>
+
+  <!-- 隐藏的音频元素 -->
+  <audio id="musicPlayer" src="a-b-c.mp3"></audio>
 
   <!-- 引入我们创建的JavaScript文件 -->
   <script src="index.js"></script>
@@ -429,7 +447,7 @@
       console.log(`Applied scale to C-3-G.png, C-4-G.png and C-5-G.png: Width=${newWidth}, Height=${newHeight}, Scale X=${scaleX}, Y=${scaleY}`);
     }
     
-    // 页面加载完成后初始化弹窗功能
+    // 页面加载完成后初始化功能
     document.addEventListener('DOMContentLoaded', function() {
       // 为Elements-1-G.png添加点击事件监听器
       const element1Image = document.getElementById('element1Image');
@@ -439,6 +457,20 @@
           const popup = document.getElementById('pixelPopup');
           if (popup) {
             popup.classList.add('show');
+          }
+        });
+      }
+      
+      // 为Elements-3-G.png添加点击事件监听器
+      const element3Image = document.getElementById('element3Image');
+      if (element3Image) {
+        element3Image.addEventListener('click', function() {
+          // 显示音乐播放器并播放音乐
+          const player = document.getElementById('pixelMusicPlayer');
+          const audio = document.getElementById('musicPlayer');
+          if (player && audio) {
+            player.classList.add('show');
+            audio.play();
           }
         });
       }

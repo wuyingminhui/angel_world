@@ -352,11 +352,32 @@ function displayJsonData(data) {
   const cols = table.cols;
   const rows = table.rows;
   rows.forEach(row => {
-    console.log(row.c);
-    row.c.forEach(cell => {
-      const value = cell ? cell.v : '';
-      console.log(value);
-    });
+    if (row.c[2].v == 'k_c') {
+      k_c_title = row.c[3].v;
+      k_c_content = row.c[4].v;
+    }
+    else if (row.c[2].v == 'k_d') {
+      k_d_title = row.c[3].v;
+      k_d_content = row.c[4].v;
+    } else if (row.c[2].v == 'k_h') {
+      k_h_title = row.c[3].v;
+      k_h_content = row.c[4].v;
+    } else if (row.c[2].v == 'k_i') {
+      k_i_title = row.c[3].v;
+      k_i_content = row.c[4].v;
+    } else if (row.c[2].v == 'l_c') {
+      l_c_title = row.c[3].v;
+      l_c_content = row.c[4].v;
+    } else if (row.c[2].v == 'l_d') {
+      l_d_title = row.c[3].v;
+      l_d_content = row.c[4].v;
+    } else if (row.c[2].v == 'l_h') {
+      l_h_title = row.c[3].v;
+      l_h_content = row.c[4].v;
+    } else if (row.c[2].v == 'l_i') {
+      l_i_title = row.c[3].v;
+      l_i_content = row.c[4].v;
+    }
   });
 }
 

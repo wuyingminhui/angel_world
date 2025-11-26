@@ -350,7 +350,7 @@ function getDocument() {
       .catch(error => console.error('Error:', error));
 }
 
- function displayJsonData(data) {
+function displayJsonData(data) {
   console.log(data);
   const table = data.table;
   const cols = table.cols;
@@ -361,9 +361,7 @@ function getDocument() {
       console.log(value);
     });
   });
-
-
- }
+}
 
 /**
  * 隐藏音乐播放器

@@ -355,8 +355,7 @@ function displayJsonData(data) {
     if (row.c[2].v == 'k_c') {
       k_c_title = row.c[3].v;
       k_c_content = row.c[4].v;
-    }
-    else if (row.c[2].v == 'k_d') {
+    } else if (row.c[2].v == 'k_d') {
       k_d_title = row.c[3].v;
       k_d_content = row.c[4].v;
     } else if (row.c[2].v == 'k_h') {
@@ -395,7 +394,8 @@ function hideMusicPlayer() {
 document.addEventListener('DOMContentLoaded', function() {
   initPopup();
   initMusicPlayer();
-  getDocument()
+  getDocument();
+  console.log('Page loaded', l_c_title, l_d_title, l_h_title, l_i_title, k_c_title, k_d_title, k_h_title, k_i_title);
 });
 
 // 导出函数（如果在模块环境中使用）

@@ -1,22 +1,22 @@
 const sheetId = '16R7g1FyFMaq9fwwh4m6uSkiZu-dyIyf0829Ys5C3Q90';
 const sheetName = '1126';
-let l_h_title = 'L页面 - H页面来源';
-let l_h_content = '这是从H页面进入l-page.html时显示的内容。';
-let l_i_title = 'L页面 - I页面来源';
-let l_i_content = '这是从I页面进入l-page.html时显示的内容。';
-let l_c_title = 'L页面 - C页面来源';
-let l_c_content = '这是从C页面进入l-page.html时显示的内容。';
-let l_d_title = 'L页面 - D页面来源';
-let l_d_content = '这是从D页面进入l-page.html时显示的内容。';
+let l_h_title = '加载中';
+let l_h_content = '加载中，请稍等';
+let l_i_title = '加载中';
+let l_i_content = '加载中，请稍等';
+let l_c_title = '加载中';
+let l_c_content = '加载中，请稍等';
+let l_d_title = '加载中';
+let l_d_content = '加载中，请稍等';
 
-let k_c_title = 'K页面 - C页面来源';
-let k_c_content = '这是从C页面进入k-page.html时显示的内容。';
-let k_d_title = 'K页面 - D页面来源';
-let k_d_content = '这是从D页面进入k-page.html时显示的内容。';
-let k_h_title = 'K页面 - H页面来源';
-let k_h_content = '这是从H页面进入k-page.html时显示的内容。';
-let k_i_title = 'K页面 - I页面来源';
-let k_i_content = '这是从I页面进入k-page.html时显示的内容。';
+let k_c_title = '加载中';
+let k_c_content = '加载中，请稍等';
+let k_d_title = '加载中';
+let k_d_content = '加载中，请稍等';
+let k_h_title = '加载中';
+let k_h_content = '加载中，请稍等';
+let k_i_title = '加载中';
+let k_i_content = '加载中，请稍等';
 
 /**
  * 计算 object-fit: cover 模式下的图片偏移
